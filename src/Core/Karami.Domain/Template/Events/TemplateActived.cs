@@ -5,8 +5,7 @@ using Karami.Core.Domain.Enumerations;
 namespace Karami.Domain.Service.Events;
 
 [MessageBroker(ExchangeType = Exchange.FanOut, Exchange = "", Queue = "")]
-public class TemplateActived : UpdateDomainEvent
+public class TemplateActived : UpdateDomainEvent<string>
 {
-    public string Id     { get; init; }
     public bool IsActive { get; init; }
 }
