@@ -13,6 +13,7 @@ public static class IConfigurationBuilderExtension
     )
     {
         var service    = Path.Combine(hostEnvironment.ContentRootPath, "Configs", "Service.json");
+        var config     = Path.Combine(hostEnvironment.ContentRootPath, "Configs", "Config.json");
         var jsonResult = Path.Combine(hostEnvironment.ContentRootPath, "Configs", "JsonResult.json");
         var license    = Path.Combine(hostEnvironment.ContentRootPath, "Configs", "License.json");
         
