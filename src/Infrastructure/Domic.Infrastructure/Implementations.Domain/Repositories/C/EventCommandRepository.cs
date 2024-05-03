@@ -6,32 +6,27 @@ using Domic.Persistence.Contexts.C;
 namespace Domic.Infrastructure.Implementations.Domain.Repositories.C;
 
 //Config
-public partial class EventCommandRepository : IEventCommandRepository
-{
-    private readonly SQLContext _context;
-
-    public EventCommandRepository(SQLContext context) => _context = context;
-}
+public partial class EventCommandRepository(SQLContext context) : IEventCommandRepository;
 
 //Transaction
 public partial class EventCommandRepository
 {
     public async Task AddAsync(Event entity, CancellationToken cancellationToken) 
-        => await _context.Events.AddAsync(entity, cancellationToken);
+        => await context.Events.AddAsync(entity, cancellationToken);
 
-    public void Change(Event entity) => _context.Events.Update(entity);
+    public void Change(Event entity) => context.Events.Update(entity);
 
-    public void Remove(Event entity) => _context.Events.Remove(entity);
+    public void Remove(Event entity) => context.Events.Remove(entity);
 }
 
 //Query
 public partial class EventCommandRepository
 {
-    public IEnumerable<Event> FindAll() => _context.Events.ToList();
+    public IEnumerable<Event> FindAll() => context.Events.ToList();
 
     public IEnumerable<Event> FindAllWithOrdering(Order order, bool accending = true)
     {
-        var entity = _context.Events;
+        var entity = context.Events;
 
         return order switch {
             Order.Date => entity.OrderBy(@event => @event.CreatedAt_EnglishDate).ToList(),

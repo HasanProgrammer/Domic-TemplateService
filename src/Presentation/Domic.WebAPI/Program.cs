@@ -19,7 +19,7 @@ builder.WebHost.ConfigureAppConfiguration((context, builder) => builder.AddJsonF
 
 /*-------------------------------------------------------------------*/
 
-#region Service Container
+#region ServiceContainer
 
 builder.RegisterHelpers();
 builder.RegisterELK();
