@@ -29,7 +29,7 @@ public partial class SQLContext
     {
         base.OnModelCreating(builder);
         
-        builder.ApplyConfiguration(new ConsumerEventConfig());
+        builder.ApplyConfiguration(new ConsumerEventQueryConfig());
         builder.ApplyConfiguration(new TemplateQueryConfig());
     }
 }

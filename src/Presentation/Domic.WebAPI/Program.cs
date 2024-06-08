@@ -30,7 +30,7 @@ builder.RegisterCommandQueryUseCases();
 builder.RegisterCommandRepositories();
 builder.RegisterQueryRepositories();
 builder.RegisterMessageBroker();
-builder.RegisterRedisCaching();
+builder.RegisterDistributedCaching();
 builder.RegisterEventsPublisher();
 builder.RegisterEventsSubscriber();
 builder.RegisterServices();
@@ -84,4 +84,4 @@ application.Run();
 
 //For Integration Test
 
-public partial class Program {}
+public partial class Program;

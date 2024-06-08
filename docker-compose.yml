@@ -27,7 +27,8 @@ services:
       - I-RabbitMQ-Port=
       - I-RabbitMQ-Username=
       - I-RabbitMQ-Password=
-      - RedisConnectionString=domic.template.redis:6379
+      - E-RedisConnectionString=domic.template.redis:6379
+      - I-RedisConnectionString=domic.template.redis:6379
       - MongoConnectionString=
       - C-SqlServerConnectionString=Server=domic.template.command.sql.server,1433;Database=TemplateService;User ID=sa;Password=Hasan313@@313!!;Persist Security Info=True;MultipleActiveResultSets=True;
       - Q-SqlServerConnectionString=Server=domic.template.query.sql.server,1433;Database=TemplateService;User ID=sa;Password=Hasan313@@313!!;Persist Security Info=True;MultipleActiveResultSets=True;
