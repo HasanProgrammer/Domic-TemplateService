@@ -29,10 +29,13 @@ builder.RegisterEntityFrameworkCoreQuery<Q_SQLContext>();
 builder.RegisterCommandQueryUseCases();
 builder.RegisterCommandRepositories();
 builder.RegisterQueryRepositories();
-builder.RegisterMessageBroker();
 builder.RegisterDistributedCaching();
+builder.RegisterMessageBroker();
+builder.RegisterEventStreamBroker();
 builder.RegisterEventsPublisher();
 builder.RegisterEventsSubscriber();
+builder.RegisterEventsStreamPublisher();
+builder.RegisterEventsStreamSubscriber();
 builder.RegisterServices();
 
 builder.Services.AddMvc();
