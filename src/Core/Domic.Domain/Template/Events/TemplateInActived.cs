@@ -4,7 +4,7 @@ using Domic.Core.Domain.Enumerations;
 
 namespace Domic.Domain.Service.Events;
 
-[MessageBroker(ExchangeType = Exchange.FanOut, Exchange = "", Queue = "")]
+[EventConfig(ExchangeType = Exchange.FanOut, Exchange = "", Queue = "")]
 public class TemplateInActived : UpdateDomainEvent<string>
 {
     public bool IsActive { get; init; }
