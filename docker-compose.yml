@@ -5,7 +5,8 @@ services:
   domic.template.api:
     networks:
       - domic
-    image: template_service:1.0.0
+    image: template_service_api_image:1.0.0
+    container_name: "template_service_api"
     build:
       context: .
       dockerfile: Dockerfile
@@ -16,18 +17,19 @@ services:
       - log:/app/CoreLogs
       - ~\.aspnet\https\:/https/
     environment:
-      - Elastic-Host=http://localhost:9200
-      - Elastic-Username=
-      - Elastic-Password=
-      - E-RabbitMQ-Host=host.docker.internal
+      - Elastic-Host=http://domic.elastic.search:9200
+      - Elastic-Index=template
+      - Elastic-Username=domic
+      - Elastic-Password=Domic123!@#
+      - E-RabbitMQ-Host=domic.rabbit.mq
       - E-RabbitMQ-Port=5672
-      - E-RabbitMQ-Username=guest
-      - E-RabbitMQ-Password=guest
+      - E-RabbitMQ-Username=domic
+      - E-RabbitMQ-Password=Domic123!@#
       - I-RabbitMQ-Host=
       - I-RabbitMQ-Port=
       - I-RabbitMQ-Username=
       - I-RabbitMQ-Password=
-      - E-RedisConnectionString=domic.template.redis:6379
+      - E-RedisConnectionString=domic.redis:6379
       - I-RedisConnectionString=domic.template.redis:6379
       - MongoConnectionString=
       - C-SqlServerConnectionString=Server=domic.template.command.sql.server,1433;Database=TemplateService;User ID=sa;Password=Hasan313@@313!!;Persist Security Info=True;MultipleActiveResultSets=True;
@@ -36,8 +38,8 @@ services:
       - Port=80
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://+:443;http://+:80
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=Dotris313@313%%
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/Karami.WebAPI.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Domic123!@#
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/Domic.WebAPI.pfx
     
     depends_on:
       - domic.template.command.sql.server
@@ -54,7 +56,7 @@ services:
       - 1433:1433
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=Hasan313@@313!!
+      - SA_PASSWORD=Domic123!@#
   
   domic.template.query.sql.server:
     networks:
@@ -65,7 +67,7 @@ services:
       - 1400:1433
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=Hasan313@@313!!
+      - SA_PASSWORD=Domic123!@#
 
   domic.template.rabbit:
     networks:
@@ -77,8 +79,8 @@ services:
       - '15660:15672'
       - '5660:5672'
     environment:
-      - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
+      - RABBITMQ_DEFAULT_USER=domic
+      - RABBITMQ_DEFAULT_PASS=Domic123!@#
 
   domic.template.redis:
     networks:
