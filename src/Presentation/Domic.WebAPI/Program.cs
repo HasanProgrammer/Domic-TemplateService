@@ -39,6 +39,7 @@ builder.RegisterEventsStreamSubscriber();
 builder.RegisterServices();
 
 builder.Services.AddMvc();
+builder.Services.AddHttpContextAccessor();
 
 #endregion
 
