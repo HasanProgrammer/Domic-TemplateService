@@ -1,3 +1,3 @@
-namespace Domic.UseCase.SignInUseCase.DTOs.ViewModels;
+namespace Domic.UseCase.TemplateUseCase.DTOs;
 
 public class TemplatesDto;
