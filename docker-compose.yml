@@ -15,7 +15,8 @@ services:
       - 80:443
     volumes:
       - log:/app/CoreLogs
-      - ~/services/Domic-TemplateService/.https/:/https/
+#     - ~/services/Domic-TemplateService/.https/:/https/
+      - C:\https\:/https/
     environment:
       - Elastic-Host=http://domic.elastic.search:9200
       - Elastic-Index=template
